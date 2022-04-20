@@ -1,0 +1,178 @@
+<!doctype HTML>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+	  <title>Buienradar data</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type='text/javascript' src="./javascript/myscript.js"></script>
+  </head>
+	<body>
+		<div class="container">
+			<header>
+        <h1>Buienradar data</h1>
+			</header>
+			<main>
+				<section>
+					<article id="intro">
+					  <header class="article_header">
+			        <p>Welkom op mijn buienradar demo app. Een website gemaakt met de Buienradar API.</p>
+							<p>De gegevens worden via Javascript "geiinjecteerd" in de pagina. Verder kan via Javascript gekozen wat er op de site getoond wordt.</p>
+							<p>Je kunt de code van deze site (incl. documentatie) downloaden vanaf mijn GitHub account: <a href="https://github.com/peter-kaagman/buienradar" target="_blank">Site repository</a></p>
+					  </header>
+					   <!-- 
+			       Her en der staan elementen (SPANs. DDs, DTs, Ps enz) zonder inhoud maar met een id. 
+						 Deze elementen krijgen inhoud via de Javascript.
+						 De site inhoud begint met wat algemene informatie: zons op- en ondergang.
+					   -->
+	          <p>Vandaag gaat de zon op om  <span id='sun_up'></span> en onder om <span id='sun_down'></span>.</p>
+					</article>
+
+				  <!-- Gevolgd door het weerkbericht -->
+				  <article id="weerbericht">
+						<!--
+				       Door op onderstaande knop te klikken bedien je de zogenaamde harmonica
+							 De DIV die eronder staat zal de class collapsed toegevoegd krijgen, of
+							 wordt juist weggehaald. In het laatste geval zullen alle andere DIVs met
+							 de class collapse juist de class collapsed toegevoegd krijgen.
+
+						-->
+						<button  class="collapse_button" target="weerbericht_toggle">Weerbericht</button>
+						<div id="weerbericht_toggle" class="collapse collapsed">
+							<header class="article_header">
+								<h2>Het weerbericht van <span id='weerbericht_timestamp'></span></h2>
+								<h3>door <span id='weerbericht_author'></span></h3>
+							</header>
+				      <!-- 
+			        	Ik gebruik een description list. Voornamelijk omdat ik die nog nooit eerder gebruikt heb, 
+						en wil wel eens zien hoe die werken.
+				      -->
+		          <dl>
+		            <dt id='weerbericht_header'></dt>
+		            <dd id='weerbericht_inhoud'></dd>
+		          </dl>
+						</div>
+				  </article>
+
+				  <!-- dan de verwachtingen, die kan de gebruiker via een SELECT kiezen-->
+				  <article id="verwachtingen">
+						<button class="collapse_button" target="verwachtingen_toggle">Verwachting</button>
+						<div id="verwachtingen_toggle" class="collapse collapsed">
+		          <dl>
+				        <dt>De 
+                  <select name="verwachting_periode" id="verwachting_periode" onchange="showVerwachting()">
+							      <option value="shortterm">korte termijn</option>
+							      <option value="longterm">lange termijn</option>
+					        </select>
+				           verwachting van <span id='verwachting_start'></span> tot <span id='verwachting_einde'></span>
+					       </dt>
+		             <dd id='verwachting_inhoud'></dd>
+		          </dl>
+						</div>
+				  </article>
+
+				  <!-- Als laatste de 5-daagse verwachting-->
+				  <article id="vijdaagse">
+						<button class="collapse_button" target="vijfdaagse_toggle">Vijf daagse verwachting</button>
+						<div id="vijfdaagse_toggle" class="collapse collapsed">
+							<header class="article_header">
+								<h2>De vijf daagse verwachting.</h2>
+							</header>
+							<table>
+								<tr>
+									<th>&nbsp;</th>
+									<th>Header1</th>
+									<th>Header2</th>
+									<th>Header3</th>
+									<th>Header4</th>
+									<th>Header5</th>
+								</tr>
+								<tr>
+									<td>Label1</td>
+									<td>Val 1.1</td>
+									<td>Val 1.2</td>
+									<td>Val 1.3</td>
+									<td>Val 1.4</td>
+									<td>Val 1.5</td>
+								</tr>
+								<tr>
+									<td>Label2</td>
+									<td>Val 2.1</td>
+									<td>Val 2.2</td>
+									<td>Val 2.3</td>
+									<td>Val 2.4</td>
+									<td>Val 2.5</td>
+								</tr>
+								<tr>
+									<td>Label3</td>
+									<td>Val 3.1</td>
+									<td>Val 3.2</td>
+									<td>Val 3.3</td>
+									<td>Val 3.4</td>
+									<td>Val 3.5</td>
+								</tr>
+								<tr>
+									<td>Label4</td>
+									<td>Val 4.1</td>
+									<td>Val 4.2</td>
+									<td>Val 4.3</td>
+									<td>Val 4.4</td>
+									<td>Val 4.5</td>
+								</tr>
+								<tr>
+									<td>Label5</td>
+									<td>Val 5.1</td>
+									<td>Val 5.2</td>
+									<td>Val 5.3</td>
+									<td>Val 5.4</td>
+									<td>Val 5.5</td>
+								</tr>
+								<tr>
+									<td>Label6</td>
+									<td>Val 6.1</td>
+									<td>Val 6.2</td>
+									<td>Val 6.3</td>
+									<td>Val 6.4</td>
+									<td>Val 6.5</td>
+								</tr>
+								<tr>
+									<td>Label7</td>
+									<td>Val 7.1</td>
+									<td>Val 7.2</td>
+									<td>Val 7.3</td>
+									<td>Val 7.4</td>
+									<td>Val 7.5</td>
+								</tr>
+								<tr>
+									<td>Label8</td>
+									<td>Val 8.1</td>
+									<td>Val 8.2</td>
+									<td>Val 8.3</td>
+									<td>Val 8.4</td>
+									<td>Val 8.5</td>
+								</tr>
+								<tr>
+									<td>Label9</td>
+									<td>Val 9.1</td>
+									<td>Val 9.2</td>
+									<td>Val 9.3</td>
+									<td>Val 9.4</td>
+									<td>Val 9.5</td>
+								</tr>
+							</table>
+						</div>
+				  </article>
+
+			</main>
+			<footer>
+		    <p id='copyright'></p>
+			</footer>
+		</div> <!-- container -->	
+			
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>

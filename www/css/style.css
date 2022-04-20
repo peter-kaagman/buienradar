@@ -1,0 +1,33 @@
+.container{
+  display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: auto;
+}
+table,tr,th,td{
+  border: 1px solid;
+}
+
+dt{
+  font-weight: bold;
+	font-size: 110%;
+}
+.collapsed{
+	display:none;
+}
+
+.collapse_button{
+	display: inline-block;
+	color: #007bff;
+	font-weight: 400;
+	background-color: transparent;
+	cursor: pointer;
+	border: 1px solid transparent;
+
+}
+.collapse_button.focus{
+	text-decoration: underline;
+	border-color: transparent;
+	box-shadow: none;
+	outline: 0;
+}
