@@ -12,22 +12,12 @@ dt{
   font-weight: bold;
 	font-size: 110%;
 }
-.collapsed{
-	display:none;
-}
 
-.collapse_button{
-	display: inline-block;
-	color: #007bff;
-	font-weight: 400;
-	background-color: transparent;
-	cursor: pointer;
-	border: 1px solid transparent;
-
+.article_header{
+  background:	lightgreen;
+	color: black;
 }
-.collapse_button.focus{
-	text-decoration: underline;
-	border-color: transparent;
-	box-shadow: none;
-	outline: 0;
+article{
+  background: green;
+	color: lightgrey;
 }

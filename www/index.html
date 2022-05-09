@@ -36,133 +36,58 @@
 							 de class collapse juist de class collapsed toegevoegd krijgen.
 
 						-->
-						<button  class="collapse_button" target="weerbericht_toggle">Weerbericht</button>
-						<div id="weerbericht_toggle" class="collapse collapsed">
-							<header class="article_header">
-								<h2>Het weerbericht van <span id='weerbericht_timestamp'></span></h2>
-								<h3>door <span id='weerbericht_author'></span></h3>
-							</header>
-				      <!-- 
-			        	Ik gebruik een description list. Voornamelijk omdat ik die nog nooit eerder gebruikt heb, 
-						en wil wel eens zien hoe die werken.
-				      -->
-		          <dl>
-		            <dt id='weerbericht_header'></dt>
-		            <dd id='weerbericht_inhoud'></dd>
-		          </dl>
-						</div>
+						<header class="article_header">
+							<h2>Het weerbericht van <span id='weerbericht_timestamp'></span></h2>
+							<h3>door <span id='weerbericht_author'></span></h3>
+						</header>
+				    <!-- 
+			      	Ik gebruik een description list. Voornamelijk omdat ik die nog nooit eerder gebruikt heb, 
+						  en wil wel eens zien hoe die werken.
+				    -->
+		        <dl>
+		          <dt id='weerbericht_header'></dt>
+		          <dd id='weerbericht_inhoud'></dd>
+		        </dl>
 				  </article>
 
 				  <!-- dan de verwachtingen, die kan de gebruiker via een SELECT kiezen-->
 				  <article id="verwachtingen">
-						<button class="collapse_button" target="verwachtingen_toggle">Verwachting</button>
-						<div id="verwachtingen_toggle" class="collapse collapsed">
-		          <dl>
-				        <dt>De 
-                  <select name="verwachting_periode" id="verwachting_periode" onchange="showVerwachting()">
-							      <option value="shortterm">korte termijn</option>
-							      <option value="longterm">lange termijn</option>
-					        </select>
-				           verwachting van <span id='verwachting_start'></span> tot <span id='verwachting_einde'></span>
-					       </dt>
-		             <dd id='verwachting_inhoud'></dd>
-		          </dl>
-						</div>
+		        <dl>
+				      <dt>De 
+                <select name="verwachting_periode" id="verwachting_periode" onchange="showVerwachting()">
+						      <option value="shortterm">korte termijn</option>
+						      <option value="longterm">lange termijn</option>
+					      </select>
+				         verwachting van <span id='verwachting_start'></span> tot <span id='verwachting_einde'></span>
+					     </dt>
+		           <dd id='verwachting_inhoud'></dd>
+		        </dl>
 				  </article>
 
 				  <!-- Als laatste de 5-daagse verwachting-->
 				  <article id="vijdaagse">
-						<button class="collapse_button" target="vijfdaagse_toggle">Vijf daagse verwachting</button>
-						<div id="vijfdaagse_toggle" class="collapse collapsed">
-							<header class="article_header">
-								<h2>De vijf daagse verwachting.</h2>
-							</header>
-							<table>
-								<tr>
-									<th>&nbsp;</th>
-									<th>Header1</th>
-									<th>Header2</th>
-									<th>Header3</th>
-									<th>Header4</th>
-									<th>Header5</th>
-								</tr>
-								<tr>
-									<td>Label1</td>
-									<td>Val 1.1</td>
-									<td>Val 1.2</td>
-									<td>Val 1.3</td>
-									<td>Val 1.4</td>
-									<td>Val 1.5</td>
-								</tr>
-								<tr>
-									<td>Label2</td>
-									<td>Val 2.1</td>
-									<td>Val 2.2</td>
-									<td>Val 2.3</td>
-									<td>Val 2.4</td>
-									<td>Val 2.5</td>
-								</tr>
-								<tr>
-									<td>Label3</td>
-									<td>Val 3.1</td>
-									<td>Val 3.2</td>
-									<td>Val 3.3</td>
-									<td>Val 3.4</td>
-									<td>Val 3.5</td>
-								</tr>
-								<tr>
-									<td>Label4</td>
-									<td>Val 4.1</td>
-									<td>Val 4.2</td>
-									<td>Val 4.3</td>
-									<td>Val 4.4</td>
-									<td>Val 4.5</td>
-								</tr>
-								<tr>
-									<td>Label5</td>
-									<td>Val 5.1</td>
-									<td>Val 5.2</td>
-									<td>Val 5.3</td>
-									<td>Val 5.4</td>
-									<td>Val 5.5</td>
-								</tr>
-								<tr>
-									<td>Label6</td>
-									<td>Val 6.1</td>
-									<td>Val 6.2</td>
-									<td>Val 6.3</td>
-									<td>Val 6.4</td>
-									<td>Val 6.5</td>
-								</tr>
-								<tr>
-									<td>Label7</td>
-									<td>Val 7.1</td>
-									<td>Val 7.2</td>
-									<td>Val 7.3</td>
-									<td>Val 7.4</td>
-									<td>Val 7.5</td>
-								</tr>
-								<tr>
-									<td>Label8</td>
-									<td>Val 8.1</td>
-									<td>Val 8.2</td>
-									<td>Val 8.3</td>
-									<td>Val 8.4</td>
-									<td>Val 8.5</td>
-								</tr>
-								<tr>
-									<td>Label9</td>
-									<td>Val 9.1</td>
-									<td>Val 9.2</td>
-									<td>Val 9.3</td>
-									<td>Val 9.4</td>
-									<td>Val 9.5</td>
-								</tr>
-							</table>
-						</div>
+						<header class="article_header">
+							<h2>De vijf daagse verwachting.</h2>
+						</header>
+						<table>
+							<tr> <th colspan="2">&nbsp;</th>               <th id="h0"></th> <th id="h1"></th> <th id="h2"></th> <th id="h3"></th> <th id="h4"></th> </tr>
+							<tr> <td colspan="2">Verwachting</td>          <td id="d0"></td> <td id="d1"></td> <td id="d2"></td> <td id="d3"></td> <td id="d4"></td> </tr>
+							<tr> <td rowspan="2">Temp</td> <td>Min</td>    <td id="tm0"></td> <td id="tm1"></td> <td id="tm2"></td> <td id="tm3"></td> <td id="tm4"></td> </tr>
+							<tr>                           <td>Max</td>    <td id="tM0"></td> <td id="tM1"></td> <td id="tM2"></td> <td id="tM3"></td> <td id="tM4"></td> </tr>
+							<tr> <td rowspan="3">Regen</td><td>Min</td>    <td id="rm0"></td> <td id="rm1"></td> <td id="rm2"></td> <td id="rm3"></td> <td id="rm4"></td> </tr>
+							<tr>                           <td>Max</td>    <td id="rM0"></td> <td id="rM1"></td> <td id="rM2"></td> <td id="rM3"></td> <td id="rM4"></td> </tr>
+							<tr>                           <td>Kans</td>   <td id="rC0"></td> <td id="rC1"></td> <td id="rC2"></td> <td id="rC3"></td> <td id="rC4"></td> </tr>
+							<tr> <td colspan="2">Zonkans</td>              <td id="zC0"></td> <td id="zC1"></td> <td id="zC2"></td> <td id="zC3"></td> <td id="zC4"></td> </tr>
+							<tr> <td rowspan="2">Wind</td><td>Kracht</td>  <td id="w0"></td> <td id="w1"></td> <td id="w2"></td> <td id="w3"></td> <td id="w4"></td> </tr>
+							<tr>                          <td>Richting</td><td id="wR0"></td> <td id="wR1"></td> <td id="wR2"></td> <td id="wR3"></td> <td id="wR4"></td> </tr>
+						</table>
 				  </article>
 
 			</main>
+			<!--
+		   Buienradar stelt haar gegevens gratis te beschikking. Ze vereisen echter wel een copyricht notice.
+			 Toon deze dan ook.
+			-->
 			<footer>
 		    <p id='copyright'></p>
 			</footer>

@@ -2,7 +2,7 @@ var WeerData;
 
 // De window.onload wordt gebruikt om Javascript uit te voeren NADAT de pagina geladen is
 window.onload = (event) =>{
-	// Er wordt een HTTP request gemaakt voor buienradar dat
+	// Er wordt een HTTP request gemaakt voor buienradar data
   var oReq = new XMLHttpRequest();
 	// getData is een functie die aangeroepen wordt zodra de request klaar is
   oReq.addEventListener("load", getData);
@@ -23,29 +23,7 @@ function getData () {
 		showIntro();
 		showWeerbericht();
 		showVerwachting();
-		//showVijfDaagse();
-// Voeg een eventlistener toe voor de toggle knop
-const buttons = document.querySelectorAll(".collapse_button");
-for (let i = 0; i < buttons.length; i++){
-  buttons[i].addEventListener( "click", function(event) {
-		var target_name = event.target.attributes.target.value;
-		var target = document.querySelector("#"+target_name);
-		if (target.classList.contains("collapsed")){
-			// collapsed dus un-collapse
-			// Eerst alles collapsen
-			var containers = document.querySelectorAll(".collapse");
-			console.log(containers)
-			containers.forEach(container =>{
-				container.classList.add("collapsed");
-			});
-			// Dan het target un-collapsen
-			target.classList.remove("collapsed");
-		}else{
-			// niet collapsed dus collapse
-			target.classList.add("collapsed");
-		}
-	});
-}
+		showVijfDaagse();
 	}
 }
 
@@ -78,4 +56,20 @@ function showVerwachting(){
 	document.getElementById('verwachting_inhoud').innerHTML = data.forecast;
 }
 
-
+function showVijfDaagse(){
+	//Bereid een var voor met de vijfdaagse data (puur voor het gemak)
+	var data = WeerData.forecast.fivedayforecast;
+	//Loop door deze data heen (de vijf dagen)
+	for (i = 0; i < data.length; i++){
+		document.getElementById('h'+i).innerHTML = data[i].day;
+		document.getElementById('d'+i).innerHTML = data[i].weatherdescription;
+		document.getElementById('tm'+i).innerHTML = data[i].mintemperature;
+		document.getElementById('tM'+i).innerHTML = data[i].maxtemperature;
+		document.getElementById('rm'+i).innerHTML = data[i].mmRainMin;
+		document.getElementById('rM'+i).innerHTML = data[i].mmRainMax;
+		document.getElementById('rC'+i).innerHTML = data[i].rainChance;
+		document.getElementById('zC'+i).innerHTML = data[i].sunChance;
+		document.getElementById('w'+i).innerHTML = data[i].wind;
+		document.getElementById('wR'+i).innerHTML = data[i].windDirection;
+	}
+}
