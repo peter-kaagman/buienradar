@@ -1,98 +1,98 @@
 <!doctype HTML>
 <html lang='en'>
-	<head>
-		<meta charset='utf-8'>
-	  <title>Buienradar data</title>
+  <head>
+    <meta charset='utf-8'>
+    <title>Buienradar data</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type='text/javascript' src="./javascript/myscript.js"></script>
+  <script type='text/javascript' src="./javascript/myscript.js"></script>
   </head>
-	<body>
-		<div class="container">
-			<header>
+  <body>
+    <div class="container">
+      <header>
         <h1>Buienradar data</h1>
-			</header>
-			<main>
-				<section>
-					<article id="intro">
-					  <header class="article_header">
-			        <p>Welkom op mijn buienradar demo app. Een website gemaakt met de Buienradar API.</p>
-							<p>De gegevens worden via Javascript "geiinjecteerd" in de pagina. Verder kan via Javascript gekozen wat er op de site getoond wordt.</p>
-							<p>Je kunt de code van deze site (incl. documentatie) downloaden vanaf mijn GitHub account: <a href="https://github.com/peter-kaagman/buienradar" target="_blank">Site repository</a></p>
-					  </header>
-					   <!-- 
-			       Her en der staan elementen (SPANs. DDs, DTs, Ps enz) zonder inhoud maar met een id. 
-						 Deze elementen krijgen inhoud via de Javascript.
-						 De site inhoud begint met wat algemene informatie: zons op- en ondergang.
-					   -->
-	          <p>Vandaag gaat de zon op om  <span id='sun_up'></span> en onder om <span id='sun_down'></span>.</p>
-					</article>
+      </header>
+      <main>
+        <section>
+          <article id="intro">
+            <header class="article_header">
+              <p>Welkom op mijn buienradar demo app. Een website gemaakt met de Buienradar API.</p>
+              <p>De gegevens worden via Javascript "geiinjecteerd" in de pagina. Verder kan via Javascript gekozen wat er op de site getoond wordt.</p>
+              <p>Je kunt de code van deze site (incl. documentatie) downloaden vanaf mijn GitHub account: <a href="https://github.com/peter-kaagman/buienradar" target="_blank">Site repository</a></p>
+            </header>
+             <!-- 
+             Her en der staan elementen (SPANs. DDs, DTs, Ps enz) zonder inhoud maar met een id. 
+             Deze elementen krijgen inhoud via de Javascript.
+             De site inhoud begint met wat algemene informatie: zons op- en ondergang.
+             -->
+            <p>Vandaag gaat de zon op om  <span id='sun_up'></span> en onder om <span id='sun_down'></span>.</p>
+          </article>
 
-				  <!-- Gevolgd door het weerkbericht -->
-				  <article id="weerbericht">
-						<!--
-				       Door op onderstaande knop te klikken bedien je de zogenaamde harmonica
-							 De DIV die eronder staat zal de class collapsed toegevoegd krijgen, of
-							 wordt juist weggehaald. In het laatste geval zullen alle andere DIVs met
-							 de class collapse juist de class collapsed toegevoegd krijgen.
+          <!-- Gevolgd door het weerkbericht -->
+          <article id="weerbericht">
+            <!--
+               Door op onderstaande knop te klikken bedien je de zogenaamde harmonica
+               De DIV die eronder staat zal de class collapsed toegevoegd krijgen, of
+               wordt juist weggehaald. In het laatste geval zullen alle andere DIVs met
+               de class collapse juist de class collapsed toegevoegd krijgen.
 
-						-->
-						<header class="article_header">
-							<h2>Het weerbericht van <span id='weerbericht_timestamp'></span></h2>
-							<h3>door <span id='weerbericht_author'></span></h3>
-						</header>
-				    <!-- 
-			      	Ik gebruik een description list. Voornamelijk omdat ik die nog nooit eerder gebruikt heb, 
-						  en wil wel eens zien hoe die werken.
-				    -->
-		        <dl>
-		          <dt id='weerbericht_header'></dt>
-		          <dd id='weerbericht_inhoud'></dd>
-		        </dl>
-				  </article>
+            -->
+            <header class="article_header">
+              <h2>Het weerbericht van <span id='weerbericht_timestamp'></span></h2>
+              <h3>door <span id='weerbericht_author'></span></h3>
+            </header>
+            <!-- 
+              Ik gebruik een description list. Voornamelijk omdat ik die nog nooit eerder gebruikt heb, 
+              en wil wel eens zien hoe die werken.
+            -->
+            <dl>
+              <dt id='weerbericht_header'></dt>
+              <dd id='weerbericht_inhoud'></dd>
+            </dl>
+          </article>
 
-				  <!-- dan de verwachtingen, die kan de gebruiker via een SELECT kiezen-->
-				  <article id="verwachtingen">
-		        <dl>
-				      <dt>De 
+          <!-- dan de verwachtingen, die kan de gebruiker via een SELECT kiezen-->
+          <article id="verwachtingen">
+            <dl>
+              <dt>De 
                 <select name="verwachting_periode" id="verwachting_periode" onchange="showVerwachting()">
-						      <option value="shortterm">korte termijn</option>
-						      <option value="longterm">lange termijn</option>
-					      </select>
-				         verwachting van <span id='verwachting_start'></span> tot <span id='verwachting_einde'></span>
-					     </dt>
-		           <dd id='verwachting_inhoud'></dd>
-		        </dl>
-				  </article>
+                  <option value="shortterm">korte termijn</option>
+                  <option value="longterm">lange termijn</option>
+                </select>
+                 verwachting van <span id='verwachting_start'></span> tot <span id='verwachting_einde'></span>
+               </dt>
+               <dd id='verwachting_inhoud'></dd>
+            </dl>
+          </article>
 
-				  <!-- Als laatste de 5-daagse verwachting-->
-				  <article id="vijdaagse">
-						<header class="article_header">
-							<h2>De vijf daagse verwachting.</h2>
-						</header>
-						<table>
-							<tr> <th colspan="2">&nbsp;</th>               <th id="h0"></th> <th id="h1"></th> <th id="h2"></th> <th id="h3"></th> <th id="h4"></th> </tr>
-							<tr> <td colspan="2">Verwachting</td>          <td id="d0"></td> <td id="d1"></td> <td id="d2"></td> <td id="d3"></td> <td id="d4"></td> </tr>
-							<tr> <td rowspan="2">Temp</td> <td>Min</td>    <td id="tm0"></td> <td id="tm1"></td> <td id="tm2"></td> <td id="tm3"></td> <td id="tm4"></td> </tr>
-							<tr>                           <td>Max</td>    <td id="tM0"></td> <td id="tM1"></td> <td id="tM2"></td> <td id="tM3"></td> <td id="tM4"></td> </tr>
-							<tr> <td rowspan="3">Regen</td><td>Min</td>    <td id="rm0"></td> <td id="rm1"></td> <td id="rm2"></td> <td id="rm3"></td> <td id="rm4"></td> </tr>
-							<tr>                           <td>Max</td>    <td id="rM0"></td> <td id="rM1"></td> <td id="rM2"></td> <td id="rM3"></td> <td id="rM4"></td> </tr>
-							<tr>                           <td>Kans</td>   <td id="rC0"></td> <td id="rC1"></td> <td id="rC2"></td> <td id="rC3"></td> <td id="rC4"></td> </tr>
-							<tr> <td colspan="2">Zonkans</td>              <td id="zC0"></td> <td id="zC1"></td> <td id="zC2"></td> <td id="zC3"></td> <td id="zC4"></td> </tr>
-							<tr> <td rowspan="2">Wind</td><td>Kracht</td>  <td id="w0"></td> <td id="w1"></td> <td id="w2"></td> <td id="w3"></td> <td id="w4"></td> </tr>
-							<tr>                          <td>Richting</td><td id="wR0"></td> <td id="wR1"></td> <td id="wR2"></td> <td id="wR3"></td> <td id="wR4"></td> </tr>
-						</table>
-				  </article>
+          <!-- Als laatste de 5-daagse verwachting-->
+          <article id="vijdaagse">
+            <header class="article_header">
+              <h2>De vijf daagse verwachting.</h2>
+            </header>
+            <table>
+              <tr> <th colspan="2">&nbsp;</th>               <th id="h0"></th> <th id="h1"></th> <th id="h2"></th> <th id="h3"></th> <th id="h4"></th> </tr>
+              <tr> <td colspan="2">Verwachting</td>          <td id="d0"></td> <td id="d1"></td> <td id="d2"></td> <td id="d3"></td> <td id="d4"></td> </tr>
+              <tr> <td rowspan="2">Temp</td> <td>Min</td>    <td id="tm0"></td> <td id="tm1"></td> <td id="tm2"></td> <td id="tm3"></td> <td id="tm4"></td> </tr>
+              <tr>                           <td>Max</td>    <td id="tM0"></td> <td id="tM1"></td> <td id="tM2"></td> <td id="tM3"></td> <td id="tM4"></td> </tr>
+              <tr> <td rowspan="3">Regen</td><td>Min</td>    <td id="rm0"></td> <td id="rm1"></td> <td id="rm2"></td> <td id="rm3"></td> <td id="rm4"></td> </tr>
+              <tr>                           <td>Max</td>    <td id="rM0"></td> <td id="rM1"></td> <td id="rM2"></td> <td id="rM3"></td> <td id="rM4"></td> </tr>
+              <tr>                           <td>Kans</td>   <td id="rC0"></td> <td id="rC1"></td> <td id="rC2"></td> <td id="rC3"></td> <td id="rC4"></td> </tr>
+              <tr> <td colspan="2">Zonkans</td>              <td id="zC0"></td> <td id="zC1"></td> <td id="zC2"></td> <td id="zC3"></td> <td id="zC4"></td> </tr>
+              <tr> <td rowspan="2">Wind</td><td>Kracht</td>  <td id="w0"></td> <td id="w1"></td> <td id="w2"></td> <td id="w3"></td> <td id="w4"></td> </tr>
+              <tr>                          <td>Richting</td><td id="wR0"></td> <td id="wR1"></td> <td id="wR2"></td> <td id="wR3"></td> <td id="wR4"></td> </tr>
+            </table>
+          </article>
 
-			</main>
-			<!--
-		   Buienradar stelt haar gegevens gratis te beschikking. Ze vereisen echter wel een copyricht notice.
-			 Toon deze dan ook.
-			-->
-			<footer>
-		    <p id='copyright'></p>
-			</footer>
-		</div> <!-- container -->	
-			
+      </main>
+      <!--
+       Buienradar stelt haar gegevens gratis te beschikking. Ze vereisen echter wel een copyricht notice.
+       Toon deze dan ook.
+      -->
+      <footer>
+        <p id='copyright'></p>
+      </footer>
+    </div> <!-- container -->  
+      
         </div>
       </div>
     </div>
